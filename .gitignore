@@ -1,0 +1,6 @@
+.venv/
+venv/
+.idea/
+
+# Ignore the CAD source files and distribute the exports.
+/hardware/src/

@@ -1,0 +1,4 @@
+circuitpython-stubs
+adafruit-circuitpython-hid
+adafruit-circuitpython-debouncer
+adafruit-circuitpython-ticks

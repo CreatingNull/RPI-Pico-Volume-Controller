@@ -11,6 +11,25 @@ Turn a Raspberry Pi Pico into a media control device for PC.
 
 ## Getting Started
 
+![Exploded-View](hardware/exploded-view.png)
+
+**Parts List:**
+
+* 3D Printed `hardware/enclosure-base`
+* 3D Printed `hardware/enclosure-lid`
+* 4x M2 Threaded Knurled Heatset Inserts
+* 2x M3 Threaded Knurled Heatset Inserts
+* EC11 Rotor Encoder or Similar
+* 4x M2x3 screws
+* 2x M3x6 screws
+* 4x 12x12mm rubber adhesive feet
+* 44mm Aluminium Rotor Encoder / Potentiometer Knob
+* Raspberry Pi Pico
+* Ribbon Cable
+* 2x 5mm LEDs (Optional)
+
+With the exception of the customer 3d printed parts, all the components can be picked up off AliExpress.
+
 ### Setting Up The MicroController
 
 This project uses [CircuitPython](https://circuitpython.org/) for the helpful HID libraries.
@@ -24,6 +43,12 @@ There are also several [adafruit libraries](https://circuitpython.org/libraries)
 The contents of the `firmware/` subdirectory should be copied into the root directory of the Pico device.
 
 Note: The storage device is disabled on the next hard boot of the Pi, to disable this behaviour for update or development short Pin 13 to ground on boot.
+
+### Setting up the enclosure
+
+The enclosure is a 2 piece design designed to be 3d printed.
+The `enclosure-lid` is installed with m2 heatset inserts for securing the raspberry pi, as well as m3 heatset inserts to securing the base.
+There are optional in the LID to fit standard 5mm LEDs to achieve an illuminated ring under the control knob.
 
 ---
 

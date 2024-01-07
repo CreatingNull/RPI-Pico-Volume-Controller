@@ -11,8 +11,7 @@ update_jumper.direction = Direction.INPUT
 update_jumper.pull = Pull.UP
 
 if update_jumper.value:
-    pass
-    # storage.disable_usb_drive()
+    storage.disable_usb_drive()
 
 usb_hid.enable(
     # Disable mouse and keyboard HID as we aren't using these.

@@ -7,10 +7,6 @@ from adafruit_debouncer import Debouncer
 import rotaryio
 import usb_hid
 
-__version__ = "0.1.0"
-
-print("\nNullTek Volume Controller v", __version__, sep="")
-
 # Consumer Control is for Media Keyboard keys
 consumer_control = ConsumerControl(usb_hid.devices)
 
@@ -24,7 +20,6 @@ with rotaryio.IncrementalEncoder(GP12, GP11) as encoder:
     position_prior = encoder.position  # Tracks the n-1 position
     button_latch = True  # False when pending button release.
     while True:
-
         # Monitor the encoder.
         position = encoder.position
         if position_prior != position:

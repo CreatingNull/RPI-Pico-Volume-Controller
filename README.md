@@ -14,6 +14,11 @@ Turn a Raspberry Pi Pico into a media control device for PC.
 
 This project uses [CircuitPython](https://circuitpython.org/) for the helpful HID libraries.
 Circuit python must be installed on the Pico prior to loading the firmware from this repo.
+There are also several [adafruit libraries](https://circuitpython.org/libraries) used, these files should be copied into the `lib/` subdirectory after circuit python is installed.
+
+* `adafruit_hid\` - Folder contains the Human Interface Device libs.
+* `adafruit_debouncer.mpy` - Used to debounce switch input.
+* `adafruit_ticks` - Used for timing within the debouncing lib.
 
 The contents of the `firmware/` subdirectory should be copied into the root directory of the Pico device.
 
@@ -27,8 +32,11 @@ Any contributions are welcome.
 The `requirements-development.txt` file should be installed on a dev python environment to ensure your IDE has typing stubs to introspect your source.
 
 `deploy.py` is provided as a simple helper script to allow automation of loading new code from the repo onto a device for test, this can be configured to run via your IDE.
+Pass a directory argument for your Pico when calling the `deploy` script.
 
 To expose the storage device for development you need to short the GP13 pin to ground on boot, generally for development you want a permanent short between these pins.
+
+Pre-Commit is used to automate linting and formatting on the repository.
 
 ---
 

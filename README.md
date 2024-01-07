@@ -1,6 +1,7 @@
 # ![NullTek Documentation](https://raw.githubusercontent.com/CreatingNull/NullTek-Assets/main/img/logo/NullTekDocumentationLogo.png)RPi Pico Volume Controller
 
 [![License](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/CreatingNull/RPI-Pico-Volume-Controller/blob/main/LICENSE.md)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/CreatingNull/RPI-Pico-Volume-Controller/main.svg)](https://results.pre-commit.ci/latest/github/CreatingNull/RPI-Pico-Volume-Controller/main)
 
 ![Enclosure Render](hardware/enclosure-render.png)
 

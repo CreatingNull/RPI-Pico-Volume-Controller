@@ -12,11 +12,13 @@ repos:
   -   id: mixed-line-ending
   -   id: check-case-conflict
   -   id: check-ast
+  -   id: requirements-txt-fixer
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.1.11
   hooks:
     # Run the linter.
     - id: ruff
+      args: ["--extend-select=I", "--fix"]
     # Run the formatter.
     - id: ruff-format

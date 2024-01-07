@@ -6,6 +6,7 @@
 ![Enclosure Render](hardware/enclosure-render.png)
 
 Turn a Raspberry Pi Pico into a media control device for PC.
+Allowing for volume control and play/pause functionality in a stylish self-contained package.
 
 ---
 
@@ -28,7 +29,20 @@ Turn a Raspberry Pi Pico into a media control device for PC.
 * Ribbon Cable
 * 2x 5mm LEDs (Optional)
 
-With the exception of the customer 3d printed parts, all the components can be picked up off AliExpress.
+Except the custom 3d printed parts, all the components can be obtained via Aliexpress.
+
+### Setting up the enclosure
+
+The enclosure is a 2 piece design designed to be 3d printed.
+The `enclosure-lid` is installed with m2 heatset inserts for securing the raspberry pi, as well as m3 heatset inserts to securing the base.
+There are optional cutouts in the LID to fit standard 5mm LEDs to achieve an illuminated ring under the control knob.
+
+### Wiring the rotor encoder
+
+The A/B encoder inputs can be directly connected to the GPIO pins 12,11.
+Note getting these around backwards (A -> 11, B -> 12) will reverse the volume control direction.
+Center ground pin must be connected to the Pico ground.
+The switch pins of the encoder should be connected between GPIO Pin 14 and ground.
 
 ### Setting Up The MicroController
 
@@ -44,11 +58,6 @@ The contents of the `firmware/` subdirectory should be copied into the root dire
 
 Note: The storage device is disabled on the next hard boot of the Pi, to disable this behaviour for update or development short Pin 13 to ground on boot.
 
-### Setting up the enclosure
-
-The enclosure is a 2 piece design designed to be 3d printed.
-The `enclosure-lid` is installed with m2 heatset inserts for securing the raspberry pi, as well as m3 heatset inserts to securing the base.
-There are optional in the LID to fit standard 5mm LEDs to achieve an illuminated ring under the control knob.
 
 ---
 

@@ -1,7 +1,7 @@
 """Simple script to roll out the code onto the device."""
-from pathlib import Path
 import shutil
 import sys
+from pathlib import Path
 
 if len(sys.argv) != 2:
     sys.exit("Incorrect number of arguments, expected 2.")

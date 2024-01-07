@@ -1,8 +1,8 @@
 # Typing stubs for IDE introspection.
-circuitpython-stubs
-adafruit-circuitpython-hid
 adafruit-circuitpython-debouncer
+adafruit-circuitpython-hid
 adafruit-circuitpython-ticks
+circuitpython-stubs
 
 # Used for linting / formatting automation.
 pre-commit

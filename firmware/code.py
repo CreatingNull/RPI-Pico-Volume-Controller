@@ -1,11 +1,11 @@
 """Use RPI Pico as HID for volume control via a rotor encoder."""
-from digitalio import DigitalInOut, Direction, Pull
-from board import GP11, GP12, GP14
-from adafruit_hid.consumer_control import ConsumerControl
-from adafruit_hid.consumer_control_code import ConsumerControlCode
-from adafruit_debouncer import Debouncer
 import rotaryio
 import usb_hid
+from adafruit_debouncer import Debouncer
+from adafruit_hid.consumer_control import ConsumerControl
+from adafruit_hid.consumer_control_code import ConsumerControlCode
+from board import GP11, GP12, GP14
+from digitalio import DigitalInOut, Direction, Pull
 
 # Consumer Control is for Media Keyboard keys
 consumer_control = ConsumerControl(usb_hid.devices)

@@ -44,6 +44,12 @@ Note getting these around backwards (A -> 11, B -> 12) will reverse the volume c
 Center ground pin must be connected to the Pico ground.
 The switch pins of the encoder should be connected between GPIO Pin 14 and ground.
 
+### Wiring the optional LEDs
+
+There are cutouts for 2x 5mm LEDs the encoder knob, this can provide an under-glow ring of light effect.
+These LEDs can be connected on GPIO pins 8,9 to ground, by default this is driven at 100% duty cycle.
+Current limiting resistors should be selected based on LED choice.
+
 ### Setting Up The MicroController
 
 This project uses [CircuitPython](https://circuitpython.org/) for the helpful HID libraries.
@@ -56,8 +62,7 @@ There are also several [adafruit libraries](https://circuitpython.org/libraries)
 
 The contents of the `firmware/` subdirectory should be copied into the root directory of the Pico device.
 
-Note: The storage device is disabled on the next hard boot of the Pi, to disable this behaviour for update or development short Pin 13 to ground on boot.
-
+Note: The storage device is disabled on the next hard boot of the Pi, to disable this behaviour for update or development depress the encoder button on hard reset.
 
 ---
 
@@ -69,7 +74,7 @@ The `requirements-development.txt` file should be installed on a dev python envi
 `deploy.py` is provided as a simple helper script to allow automation of loading new code from the repo onto a device for test, this can be configured to run via your IDE.
 Pass a directory argument for your Pico when calling the `deploy` script.
 
-To expose the storage device for development you need to short the GP13 pin to ground on boot, generally for development you want a permanent short between these pins.
+To expose the storage device for development you need to short the GP14 pin (encoder switch) to ground on boot.
 
 Pre-Commit is used to automate linting and formatting on the repository.
 

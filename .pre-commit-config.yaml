@@ -14,11 +14,30 @@ repos:
   -   id: check-ast
   -   id: requirements-txt-fixer
 
+# Format markdown docs.
+-   repo: https://github.com/executablebooks/mdformat
+    # Do this before other tools "fixing" the line endings
+    rev: 0.7.17
+    hooks:
+    -   id: mdformat
+        args: [--number, --end-of-line=keep]
+        additional_dependencies:
+            - mdformat-toc
+            - mdformat-config
+            - mdformat-gfm
+
+# Format and lint python code.
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.1.14
+  rev: v0.2.0
   hooks:
     # Run the linter.
     - id: ruff
       args: ["--extend-select=I", "--fix"]
     # Run the formatter.
     - id: ruff-format
+
+# Catch typos!
+-   repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+    -   id: codespell

@@ -10,6 +10,10 @@ from board import GP8, GP9, GP11, GP12, GP14
 from digitalio import DigitalInOut, Direction, Pull
 from pwmio import PWMOut
 
+# Set the rate limit for volume changes, 0.1 -> 10Hz, 0.25 -> 5Hz.
+# This is to avoid triggering scripting / macro blocking software.
+RATE_LIMIT_S = 0.1
+
 # Consumer Control is for Media Keyboard keys
 consumer_control = ConsumerControl(usb_hid.devices)
 
@@ -33,16 +37,22 @@ PWMOut(GP9, frequency=1000, duty_cycle=0xFFFF)
 with rotaryio.IncrementalEncoder(GP12, GP11) as encoder:
     position_prior = encoder.position  # Tracks the n-1 position
     button_latch = True  # False when pending button release.
+    last_trigger = time.monotonic()  # for rate-limiting the volume changes.
     while True:
         # Monitor the encoder.
         position = encoder.position
+        # If the position has changed.
         if position_prior != position:
-            # Check the polarity of rotation.
-            if position > position_prior:  # Increase Volume
-                consumer_control.send(ConsumerControlCode.VOLUME_INCREMENT)
-            else:  # Decrease Volume
-                consumer_control.send(ConsumerControlCode.VOLUME_DECREMENT)
-            position_prior = position
+            # Check we are within the rate limit.
+            current_trigger = time.monotonic()
+            if (current_trigger - last_trigger) > RATE_LIMIT_S:
+                # Check the polarity of rotation.
+                if position > position_prior:  # Increase Volume
+                    consumer_control.send(ConsumerControlCode.VOLUME_INCREMENT)
+                else:  # Decrease Volume
+                    consumer_control.send(ConsumerControlCode.VOLUME_DECREMENT)
+                last_trigger = current_trigger
+        position_prior = position
 
         # Monitor the status of the button.
         button_debounced.update()

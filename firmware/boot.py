@@ -12,11 +12,11 @@ update_jumper.pull = Pull.UP
 if update_jumper.value:
     # Pin is held high by pull-up and drive should be disabled.
     storage.disable_usb_drive()
-# else we enter update mode and leave the drive enabled.
+    # Also disable the serial port.
+    usb_cdc.disable()  # No need for the serial devices.
+# else we enter update mode and leave the drive / serial enabled.
 
 usb_hid.enable(
     # Disable mouse and keyboard HID as we aren't using these.
     (usb_hid.Device.CONSUMER_CONTROL,)
 )
-
-usb_cdc.disable()  # No need for the serial devices.

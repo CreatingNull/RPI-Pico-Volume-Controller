@@ -10,9 +10,9 @@ from board import GP8, GP9, GP11, GP12, GP14
 from digitalio import DigitalInOut, Direction, Pull
 from pwmio import PWMOut
 
-# Set the rate limit for volume changes, 0.1 -> 10Hz, 0.25 -> 5Hz.
+# Set the rate limit for volume changes, 0.05 -> 20Hz, 0.25 -> 5Hz.
 # This is to avoid triggering scripting / macro blocking software.
-RATE_LIMIT_S = 0.1
+RATE_LIMIT_S = 0.05
 
 # Consumer Control is for Media Keyboard keys
 consumer_control = ConsumerControl(usb_hid.devices)

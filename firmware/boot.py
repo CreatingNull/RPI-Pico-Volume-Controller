@@ -1,6 +1,7 @@
 import storage
 import usb_cdc
 import usb_hid
+import usb_midi
 from board import GP14
 from digitalio import DigitalInOut, Direction, Pull
 
@@ -20,3 +21,6 @@ usb_hid.enable(
     # Disable mouse and keyboard HID as we aren't using these.
     (usb_hid.Device.CONSUMER_CONTROL,)
 )
+
+# No need for pico usb_midi device support.
+usb_midi.disable()

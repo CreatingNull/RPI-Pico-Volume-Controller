@@ -1,7 +1,7 @@
 Version 1.0.1
 -------------
 
-:Date: TBC
+:Date: 18-February-2024
 
 * Disabled the superfluous pico ``usb_midi`` device.
 * Increased the rate-limit from 10Hz to 20Hz.

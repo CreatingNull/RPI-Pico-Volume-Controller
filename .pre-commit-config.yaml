@@ -1,7 +1,7 @@
 repos:
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.5.0
+  rev: v5.0.0
   hooks:
   -   id: check-yaml
   -   id: end-of-file-fixer
@@ -17,7 +17,7 @@ repos:
 # Format markdown docs.
 -   repo: https://github.com/executablebooks/mdformat
     # Do this before other tools "fixing" the line endings
-    rev: 0.7.17
+    rev: 0.7.18
     hooks:
     -   id: mdformat
         args: [--number, --end-of-line=keep]
@@ -28,7 +28,7 @@ repos:
 
 # Format and lint python code.
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.2.2
+  rev: v0.7.0
   hooks:
     # Run the linter.
     - id: ruff
@@ -38,6 +38,6 @@ repos:
 
 # Catch typos!
 -   repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.3.0
     hooks:
     -   id: codespell

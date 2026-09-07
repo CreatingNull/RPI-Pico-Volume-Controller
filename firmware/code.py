@@ -1,4 +1,5 @@
 """Use RPI Pico as HID for volume control via a rotor encoder."""
+
 import time
 
 import rotaryio

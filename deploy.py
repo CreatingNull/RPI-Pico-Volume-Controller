@@ -1,4 +1,5 @@
 """Simple script to roll out the code onto the device."""
+
 import filecmp
 import shutil
 import sys
